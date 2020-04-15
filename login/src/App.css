@@ -1,0 +1,39 @@
+html{
+    height:100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: darkolivegreen;
+}
+button.submit {
+    border-radius: 5px;
+    background: greenyellow;
+}
+.button {
+ 
+    border: #FFEB3B solid 3px;    
+    border-radius: 5px;
+}
+.main-div{
+    height:100%;
+    width:100%;
+     display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.input-email-div{
+  border: black solid 3px;
+    padding:5px;
+    margin:5px;
+  border-radius: 5px;
+}
+.login-div{
+color: crimson;
+size: 5px;
+}
