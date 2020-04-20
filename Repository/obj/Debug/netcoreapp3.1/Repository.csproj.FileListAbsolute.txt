@@ -1,0 +1,10 @@
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Repository\bin\Debug\netcoreapp3.1\Model.dll
