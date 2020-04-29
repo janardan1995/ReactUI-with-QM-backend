@@ -8,6 +8,7 @@
 
 namespace QuantityMeasurementBackEnd.Controllers
 {
+    using System;
     using Manager.LengthManager;
     using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,8 @@ namespace QuantityMeasurementBackEnd.Controllers
             this.manager = manager;
         }
 
+        Program msmq = new Program();
+
         /// <summary>
         /// Converteds the feet to yard.
         /// </summary>
@@ -42,7 +45,10 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_FeetToYard(double F_Value)
         {
-            return manager.Converted_FeetToYard(F_Value);
+            
+            var result= manager.Converted_FeetToYard(F_Value);
+            msmq.Send(result);
+            return result;
         }
 
         /// <summary>
@@ -50,11 +56,13 @@ namespace QuantityMeasurementBackEnd.Controllers
         /// </summary>
         /// <param name="Y_Value">The y value.</param>
         /// <returns></returns>
-        [Route("api/Converted_Converted_YardToFeet")]
+        [Route("api/Converted_YardToFeet")]
         [HttpGet]
         public ActionResult<double> Converted_YardToFeet(double Y_Value)
         {
-            return manager.Converted_YardToFeet(Y_Value);
+            var result= manager.Converted_YardToFeet(Y_Value);
+            msmq.Send(result);
+            return result;
         }
 
         /// <summary>
@@ -66,9 +74,12 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_YardToInches(double Y_Value)
         {
-            return manager.Converted_YardToInches(Y_Value);
+            var result = manager.Converted_YardToInches(Y_Value);
+            msmq.Send(result);
+            return result ;
         }
 
+       
         /// <summary>
         /// Converteds the inches to yard.
         /// </summary>
@@ -78,7 +89,9 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_InchesToYard(double I_Value)
         {
-            return manager.Converted_InchesToYard(I_Value);
+            var result= manager.Converted_InchesToYard(I_Value);
+            msmq.Send(result);
+            return result;
         }
 
         /// <summary>
@@ -90,7 +103,9 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_FeetToInches(double F_Value)
         {
-            return manager.Converted_FeetToInches(F_Value);
+            var result= manager.Converted_FeetToInches(F_Value);
+            msmq.Send(result);
+            return result;
         }
 
         /// <summary>
@@ -98,11 +113,13 @@ namespace QuantityMeasurementBackEnd.Controllers
         /// </summary>
         /// <param name="I_Value">The i value.</param>
         /// <returns></returns>
-        [Route("api/ Converted_InchesToFeet")]
+        [Route("api/Converted_InchesToFeet")]
         [HttpGet]
         public ActionResult<double> Converted_InchesToFeet(double I_Value)
         {
-            return manager.Converted_InchesToFeet(I_Value);
+            var result= manager.Converted_InchesToFeet(I_Value);
+            msmq.Send(result);
+            return result;
         }
 
     }

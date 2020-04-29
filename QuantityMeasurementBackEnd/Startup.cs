@@ -40,7 +40,18 @@ namespace QuantityMeasurementBackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
             services.AddTransient<ITemperatureManager, TemperatureManager>();
             services.AddTransient<ICelsiusVsFahrenheith, CelsiusVsFahrenheith>();
             services.AddTransient<IWeightManager, WeightManager>();

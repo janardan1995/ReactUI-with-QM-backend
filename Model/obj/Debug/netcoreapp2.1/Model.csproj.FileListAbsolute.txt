@@ -3,6 +3,7 @@ C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcore
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp2.1\Model.runtimeconfig.dev.json
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp2.1\Model.dll
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp2.1\Model.pdb
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp2.1\Model.csprojAssemblyReference.cache
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp2.1\Model.csproj.CoreCompileInputs.cache
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfoInputs.cache
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp2.1\Model.AssemblyInfo.cs

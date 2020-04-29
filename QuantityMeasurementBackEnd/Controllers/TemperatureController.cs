@@ -31,6 +31,8 @@ namespace QuantityMeasurementBackEnd.Controllers
             this.manager = manager;
         }
 
+        Program New_Queue = new Program();
+
         /// <summary>
         /// Converteds the farhenheith to celsius.
         /// </summary>
@@ -40,7 +42,9 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_FarhenheithToCelsius(double F_value)
         {
-            return manager.Converted_FarhenheithToCelsius(F_value);
+            var result= manager.Converted_FarhenheithToCelsius(F_value);
+            New_Queue.Send(result);
+            return result;
         }
 
         /// <summary>
@@ -52,7 +56,9 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_CelsiusToFahrenheith(double C_value)
         {
-            return manager.Converted_CelsiusToFahrenheith(C_value);
+            var result= manager.Converted_CelsiusToFahrenheith(C_value);
+            New_Queue.Send(result);
+            return result;
         }
 
 

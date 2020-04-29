@@ -45,7 +45,7 @@ namespace Manager.LengthManager
         /// <returns></returns>
         public double Converted_FeetToYard(double F_Value)
         {
-            return repo.Converted_FeetToInches(F_Value);
+            return repo.Converted_FeetToYard(F_Value);
         }
 
         /// <summary>

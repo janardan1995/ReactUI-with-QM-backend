@@ -9,6 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Experimental.System.Messaging" Version="1.1.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.11.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" />  
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="2.1.0" />
