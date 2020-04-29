@@ -33,7 +33,7 @@ namespace QuantityMeasurementBackEnd.Controllers
             this.manager = manager;
         }
 
-        Program New_Queue = new Program();
+        readonly Sender Msmq = new Sender();
         /// <summary>
         /// Converteds the kilogram to gram.
         /// </summary>
@@ -44,7 +44,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_KilogramToGram(double KG_value)
         {
             var result= manager.Converted_KilogramToGram(KG_value);
-            New_Queue.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -58,7 +58,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_GramToKilogram(double G_value)
         {
             var result= manager.Converted_GramToKilogram(G_value);
-            New_Queue.Send(result);
+            Msmq.Send(result);
             return result;
         }
     }

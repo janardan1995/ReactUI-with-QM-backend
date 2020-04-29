@@ -34,7 +34,7 @@ namespace QuantityMeasurementBackEnd.Controllers
             this.manager = manager;
         }
 
-        Program msmq = new Program();
+        readonly Sender Msmq = new Sender();
 
         /// <summary>
         /// Converteds the feet to yard.
@@ -47,7 +47,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         {
             
             var result= manager.Converted_FeetToYard(F_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -61,7 +61,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_YardToFeet(double Y_Value)
         {
             var result= manager.Converted_YardToFeet(Y_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -75,7 +75,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_YardToInches(double Y_Value)
         {
             var result = manager.Converted_YardToInches(Y_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result ;
         }
 
@@ -90,7 +90,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_InchesToYard(double I_Value)
         {
             var result= manager.Converted_InchesToYard(I_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -104,7 +104,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_FeetToInches(double F_Value)
         {
             var result= manager.Converted_FeetToInches(F_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -118,7 +118,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_InchesToFeet(double I_Value)
         {
             var result= manager.Converted_InchesToFeet(I_Value);
-            msmq.Send(result);
+            Msmq.Send(result);
             return result;
         }
 

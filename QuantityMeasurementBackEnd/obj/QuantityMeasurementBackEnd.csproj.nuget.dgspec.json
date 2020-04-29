@@ -203,10 +203,6 @@
               "target": "Package",
               "version": "[1.1.0, )"
             },
-            "Google.Protobuf": {
-              "target": "Package",
-              "version": "[3.11.4, )"
-            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",

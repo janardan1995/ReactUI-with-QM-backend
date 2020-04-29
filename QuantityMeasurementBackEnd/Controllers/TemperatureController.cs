@@ -31,7 +31,7 @@ namespace QuantityMeasurementBackEnd.Controllers
             this.manager = manager;
         }
 
-        Program New_Queue = new Program();
+        readonly Sender Msmq = new Sender();
 
         /// <summary>
         /// Converteds the farhenheith to celsius.
@@ -43,7 +43,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_FarhenheithToCelsius(double F_value)
         {
             var result= manager.Converted_FarhenheithToCelsius(F_value);
-            New_Queue.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
@@ -57,7 +57,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_CelsiusToFahrenheith(double C_value)
         {
             var result= manager.Converted_CelsiusToFahrenheith(C_value);
-            New_Queue.Send(result);
+            Msmq.Send(result);
             return result;
         }
 
