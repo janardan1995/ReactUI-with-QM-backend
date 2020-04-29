@@ -43,7 +43,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_KilogramToGram(double KG_value)
         {
-            var result= manager.Converted_KilogramToGram(KG_value);
+            double result= manager.Converted_KilogramToGram(KG_value);
             Msmq.Send(result);
             return result;
         }
@@ -57,7 +57,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_GramToKilogram(double G_value)
         {
-            var result= manager.Converted_GramToKilogram(G_value);
+            double result= manager.Converted_GramToKilogram(G_value);
             Msmq.Send(result);
             return result;
         }

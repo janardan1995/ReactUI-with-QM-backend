@@ -21,9 +21,9 @@ namespace QuantityMeasurementBackEnd
         /// <param name="value">The value.</param>
         public void Send(double value)
         {
-            MessageQueue Msmq = null;
             try
             {
+                MessageQueue Msmq = null;
                 if (MessageQueue.Exists(@".\Private$\Msmq"))
                 {
                     Msmq = new MessageQueue(@".\Private$\Msmq");
@@ -32,9 +32,7 @@ namespace QuantityMeasurementBackEnd
                 {
                     Msmq = MessageQueue.Create(@".\Private$\Msmq");
                 }
-
-                // New_Queue.Label = "This is the test Queue";
-                Msmq.Send(value, "Message send");
+                Msmq.Send(value.ToString(), "Message send");
             }
             catch (Exception e)
             {

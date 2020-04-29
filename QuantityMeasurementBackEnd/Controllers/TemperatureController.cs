@@ -42,7 +42,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_FarhenheithToCelsius(double F_value)
         {
-            var result= manager.Converted_FarhenheithToCelsius(F_value);
+            double result= manager.Converted_FarhenheithToCelsius(F_value);
             Msmq.Send(result);
             return result;
         }
@@ -56,7 +56,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_CelsiusToFahrenheith(double C_value)
         {
-            var result= manager.Converted_CelsiusToFahrenheith(C_value);
+            double result= manager.Converted_CelsiusToFahrenheith(C_value);
             Msmq.Send(result);
             return result;
         }

@@ -7,7 +7,8 @@
 
 namespace QuantityMeasurementBackEnd
 {
-    using System;    
+    using System;
+    using System.Collections.Generic;
     using System.IO;    
     using Experimental.System.Messaging;
 
@@ -20,35 +21,45 @@ namespace QuantityMeasurementBackEnd
         /// Receives this instance.
         /// </summary>
         public void Receive()
-        {            
-            MessageQueue Msmq = null;           
-            
+        {
+
+            MessageQueue Msmq = new MessageQueue(@".\Private$\Msmq");
+            List<string> msmqReceive = new List<string>();
             try
             {
-                Msmq = new MessageQueue(@".\Private$\Msmq");
-                Message[] messages = Msmq.GetAllMessages();
+                Message[] Messages = Msmq.GetAllMessages();
                
-                if (messages.Length > 0)
+                if (Messages.Length > 0)
                 {
-                    foreach (Message msg in messages)
+                    foreach (Message msg in Messages)
                     {
-                        msg.Formatter = new XmlMessageFormatter(new string[] { "System.String,mscorlib" });
-                        string message = msg.Body.ToString();
-                        Msmq.Receive();
-                        File.WriteAllText(@"C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\QuantityMeasurementBackEnd\MessageQueue.txt", message);
-                    }
+                         msg.Formatter = new XmlMessageFormatter(new string[] { "System.String,mscorlib" });                      
+                         string Result = msg.Body.ToString();
+                         Msmq.Receive();
+                         msmqReceive.Add(Result);
+                         Msmq.Refresh();
+                    }                    
                 }
                 else
                 {
                     Console.WriteLine("No New Messages in Message Queue");
-                }
-
-                Msmq.Refresh();
+                }               
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {                
+                TextWriter tw = new StreamWriter(@"C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\QuantityMeasurementBackEnd\MessageQueue.txt");
+
+                foreach (String s in msmqReceive)
+                tw.WriteLine(s);
+
+                tw.Close();
+                Msmq.Close();
+            }
+
         }
     }
 }

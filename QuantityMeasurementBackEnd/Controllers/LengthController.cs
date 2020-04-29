@@ -46,7 +46,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         public ActionResult<double> Converted_FeetToYard(double F_Value)
         {
             
-            var result= manager.Converted_FeetToYard(F_Value);
+            double result= manager.Converted_FeetToYard(F_Value);
             Msmq.Send(result);
             return result;
         }
@@ -60,7 +60,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_YardToFeet(double Y_Value)
         {
-            var result= manager.Converted_YardToFeet(Y_Value);
+            double result= manager.Converted_YardToFeet(Y_Value);
             Msmq.Send(result);
             return result;
         }
@@ -74,7 +74,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_YardToInches(double Y_Value)
         {
-            var result = manager.Converted_YardToInches(Y_Value);
+            double result = manager.Converted_YardToInches(Y_Value);
             Msmq.Send(result);
             return result ;
         }
@@ -89,7 +89,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_InchesToYard(double I_Value)
         {
-            var result= manager.Converted_InchesToYard(I_Value);
+            double result= manager.Converted_InchesToYard(I_Value);
             Msmq.Send(result);
             return result;
         }
@@ -103,7 +103,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_FeetToInches(double F_Value)
         {
-            var result= manager.Converted_FeetToInches(F_Value);
+            double result= manager.Converted_FeetToInches(F_Value);
             Msmq.Send(result);
             return result;
         }
@@ -117,7 +117,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         [HttpGet]
         public ActionResult<double> Converted_InchesToFeet(double I_Value)
         {
-            var result= manager.Converted_InchesToFeet(I_Value);
+            double result= manager.Converted_InchesToFeet(I_Value);
             Msmq.Send(result);
             return result;
         }
