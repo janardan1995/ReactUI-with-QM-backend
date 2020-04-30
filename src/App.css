@@ -1,13 +1,27 @@
-.App {
-  text-align: center;
+html{
+  height:100%;
+  width:100%;
+  
+}
+body{
+  font: 15px/1.5 Aria,Helvatica,Sans-serif;
+  background-color: #f4f4f4;
+  margin:0;
+  padding:0;
 }
 
-.App-logo {
+.container{
+  width:80%;
+  overflow: hidden;
+  margin: auto;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -46,7 +60,7 @@
 
 .i-o-box {
   display: flex;
-  /* justify-content: space-between; */
+ 
   justify-content: center;
   align-items: center;
 }
@@ -76,4 +90,111 @@ select.i-o-select {
     margin: 30px;
     border: solid 1px;
     border-style: outset;
+} */
+
+/* ......................... */
+body {
+  font: 15px/1.5 Aria,Helvatica,Sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div#root {
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+}
+
+div#Main-div {
+  height: 100%;
+  display: flex;
+  width: 100%;
+  background-color: black;
+}
+
+
+
+
+
+.l-w-t-select-div {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  flex-direction: column;
+}
+.i-o-box {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* flex-direction: column; */
+  /* padding: 20px; */
+  /* display: -webkit-box; */
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  overflow: hidden;
+   margin: auto; 
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  border: solid 1px palevioletred;
+  padding-bottom: 10px;
+  background-color: honeydew;
+}
+
+h1{
+  margin: unset;
+  padding: 20px;
+}
+
+.input-div {
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.output-div {
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  flex-direction: column;
+}
+select.i-o-select {
+  height: 25px;
+}
+
+input[type="text"] {
+  /* height: auto; */
+  height: 25px;
+  background-color: beige;
+}
+.equal-sign-div {
+  margin: 5px;
+}
+
+input[type="text"] {
+  /* height: auto; */
+  height: 25px;
+}
+
+select.i-o-select {
+  height: 25px;
+  background-color: ghostwhite;
+}
+
+select.main-select {
+  height: 25px;
+  width: 71.9%;
+  background-color: beige;
 }

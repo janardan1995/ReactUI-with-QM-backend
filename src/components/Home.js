@@ -152,6 +152,7 @@ class Home extends Component {
                         <div className='l-w-t-select-div'>
                             <h1>Welcome To QuantityMeasurement UI </h1>
                             <select className='main-select' onChange={this.MainOnChange}>
+                            <option value='none'>Select</option>
                                 <option value='Length'>Length</option>
                                 <option value='Weight'>Weight</option>
                                 <option value='Temperature'>Temperature</option>
