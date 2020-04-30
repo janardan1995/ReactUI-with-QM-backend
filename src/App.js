@@ -2,7 +2,9 @@ import React from 'react';
 
 import './App.css';
 import Home from './components/Home';
-import Select from './components/Select';
+
+import My from './components/My';
+
 
 function App() {
   return (

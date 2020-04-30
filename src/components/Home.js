@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { gramToKilogram, kilogramToGram } from '../services/weightServices'
+import { celsiusToFahrenheith, fahrenheithToCelsius } from '../services/temperatureServices'
+import { InchesToFeet, FeetToInches, InchesToYard, YardToInches, YardToFeet, FeetToYard } from '../services/lengthServices'
+//import {gramToKilogram} from '.\services\weightServices'
+//import {kilogramToGram} from '.\services\weightServices'
 
 class Home extends Component {
     constructor(props) {
@@ -39,49 +44,58 @@ class Home extends Component {
    
    
     onClick=(e)=>{
-
         console.log("out"+this.state.outputParameter);
         console.log("in "+this.state.inputParameter);
         console.log("num :"+this.state.num) ;
        
-        if(this.state.inputParameter==='Feet' && this.state.outputParameter==='Yard'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_FeetToYard?F_Value=${this.state.num}`)
-            .then(response => {
+        if(this.state.inputParameter==='Feet' && this.state.outputParameter==='Yard'){           
+            let data=this.state.num;
+            FeetToYard(data)
+             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             })
              .catch(error => { console.log(error) })
         }
-        if(this.state.inputParameter==='Yard' && this.state.outputParameter==='Feet'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_YardToFeet?Y_Value=${this.state.num}`)
+        if(this.state.inputParameter==='Yard' && this.state.outputParameter==='Feet'){           
+            let data=this.state.num;
+            YardToFeet(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             })
         }
         if(this.state.inputParameter==='Yard' && this.state.outputParameter==='Inch'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_YardToInches?Y_Value=${this.state.num}`)
+           
+            let data=this.state.num;
+            YardToInches(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             })
         }
         if(this.state.inputParameter==='Inch' && this.state.outputParameter==='Yard'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_InchesToYard?I_Value=${this.state.num}`)
+            
+            let data=this.state.num;
+            InchesToYard(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             });
         }
         if(this.state.inputParameter==='Feet' && this.state.outputParameter==='Inch'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_FeetToInches?F_Value=${this.state.num}`)
-            .then(response => {
+            
+            let data=this.state.num;
+            FeetToInches(data)
+             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             });
         }
         if (this.state.inputParameter==='Inch' && this.state.outputParameter==='Feet'){
-            axios.get(`https://localhost:44303/api/Length/api/Converted_InchesToFeet?I_Value=${this.state.num}`)
+            
+            let data=this.state.num;
+            InchesToFeet(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
@@ -90,15 +104,19 @@ class Home extends Component {
 
         // Temperature parameter..........................>
 
-        if (this.state.inputParameter==='Fahrenheith' && this.state.outputParameter==='Celsius'){
-            axios.get(`https://localhost:44303/api/Temperature/api/Converted_FarhenheithToCelsius?F_value=${this.state.num}`)
+        if (this.state.inputParameter==='Fahrenheith' && this.state.outputParameter==='Celsius'){            
+            let data=this.state.num;
+            fahrenheithToCelsius(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             });
         }
+
         if (this.state.inputParameter==='Celsius' && this.state.outputParameter==='Fahrenheith'){
-            axios.get(`https://localhost:44303/api/Temperature/api/Converted_CelsiusToFahrenheith?C_value=${this.state.num}`)
+            
+            let data=this.state.num;
+            celsiusToFahrenheith(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
@@ -106,15 +124,18 @@ class Home extends Component {
         }
 
         // Weight parameter
-        if (this.state.inputParameter==='Kilogram' && this.state.outputParameter==='Gram'){
-            axios.get(`https://localhost:44303/api/Weight/api/Converted_KilogramToGram?KG_value=${this.state.num}`)
+        if (this.state.inputParameter==='Kilogram' && this.state.outputParameter==='Gram'){           
+           let data=this.state.num;
+            kilogramToGram(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
             });
         }
-        if (this.state.inputParameter==='Gram' && this.state.outputParameter==='Kilogram'){
-            axios.get(`https://localhost:44303/api/Weight/api/Converted_GramToKilogram?G_value=${this.state.num}`)
+
+        if (this.state.inputParameter==='Gram' && this.state.outputParameter==='Kilogram'){           
+            let data=this.state.num;
+             gramToKilogram(data)
             .then(response => {
                 this.setState({outputValue:response.data})
                 console.log(response.data);
