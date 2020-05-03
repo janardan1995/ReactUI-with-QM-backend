@@ -6,12 +6,16 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace QuantityMeasurementBackEnd
-{    
+{
+    using System;
+    using System.Configuration;
+    using FluentAssertions.Common;
     using Manager.LengthManager;
     using Manager.TemperatureManager;
     using Manager.WeightManager;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;    
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;    
@@ -19,6 +23,7 @@ namespace QuantityMeasurementBackEnd
     using Repository.LengthRepository;
     using Repository.TemperatureRepository;
     using Repository.WeightRepository;
+    // using StackExchange.Redis;
 
     /// <summary>
     /// startUp class
@@ -62,6 +67,30 @@ namespace QuantityMeasurementBackEnd
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+            //redis
+            // Add memory cache
+
+            services.AddDistributedMemoryCache();
+            // Add redis distributed cache
+            if (Configuration.GetSection("RedisCacheOptions")["ConnectionString"] != "")
+            {
+                services.AddDistributedRedisCache(options =>
+                {
+                    options.Configuration = Configuration.GetSection("RedisCacheOptions")["ConnectionString"];
+                    options.InstanceName = "Mysite:";
+                });
+            }
+
+            // Add the session service
+            services.AddSession(options =>
+            {
+                // Set session options
+                options.IdleTimeout = TimeSpan.FromMinutes(30d);
+                options.Cookie.Name = ".Mysite";
+                options.Cookie.Path = "/";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,11 +112,14 @@ namespace QuantityMeasurementBackEnd
 
             app.UseStaticFiles();
 
+            // Use sessions
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                name: "default",
+                template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

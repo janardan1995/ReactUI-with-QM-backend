@@ -4,8 +4,15 @@ C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcore
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp3.1\Model.AssemblyInfo.cs
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.exe
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
-C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp3.1\Model.csproj.CopyComplete
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.deps.json
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.json
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.runtimeconfig.dev.json
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\bin\Debug\netcoreapp3.1\Model.pdb
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp3.1\Model.dll
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp3.1\Model.pdb
+C:\Users\Neelabh\source\repos\QuantityMeasurementBackEnd\Model\obj\Debug\netcoreapp3.1\Model.genruntimeconfig.cache

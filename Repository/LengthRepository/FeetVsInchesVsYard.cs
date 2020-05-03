@@ -13,6 +13,7 @@ namespace Repository.LengthRepository
     /// <seealso cref="Repository.LengthRepository.IFeetVsInchesVsYard" />
     public class FeetVsInchesVsYard : IFeetVsInchesVsYard
     {
+         RedisCache RedisCache = new RedisCache();
         /// <summary>
         /// Converteds the feet to inches.
         /// </summary>
@@ -20,7 +21,9 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_FeetToInches(double F_Value)
         {
-            return F_Value * 12;
+            double result = F_Value * 12;
+            RedisCache.RedisConnection($"Feet" , "Inches "+result.ToString());
+            return result;
         }
 
         /// <summary>
