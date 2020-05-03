@@ -13,13 +13,20 @@ namespace Repository.WeightRepository
     public class KilogramVsGram: IKilogramVsGram
     {
         /// <summary>
+        /// The redis cache
+        /// </summary>
+        RedisCache RedisCache = new RedisCache();
+
+        /// <summary>
         /// Converteds the gram to kilogram.
         /// </summary>
         /// <param name="G_value">The g value.</param>
         /// <returns></returns>
         public double Converted_GramToKilogram(double G_value)
         {
-            return G_value / 1000;
+            double result= G_value / 1000;
+            RedisCache.RedisConnection("GramToKilogram " + G_value.ToString(), "Kilogram " + result.ToString());
+            return result;
         }
 
         /// <summary>
@@ -29,7 +36,9 @@ namespace Repository.WeightRepository
         /// <returns></returns>
         public double Converted_KilogramToGram(double KG_value)
         {
-            return KG_value * 1000;
+            double result= KG_value * 1000;
+            RedisCache.RedisConnection("KilogramToGram " + KG_value.ToString(), "Gram " + result.ToString());
+            return result;
         }
     }
 }

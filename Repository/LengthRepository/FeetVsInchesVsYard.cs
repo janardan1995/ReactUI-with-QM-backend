@@ -22,7 +22,7 @@ namespace Repository.LengthRepository
         public double Converted_FeetToInches(double F_Value)
         {
             double result = F_Value * 12;
-            RedisCache.RedisConnection($"Feet" , "Inches "+result.ToString());
+            RedisCache.RedisConnection("FeetToInches "+F_Value.ToString() , "Inches "+result.ToString());
             return result;
         }
 
@@ -33,7 +33,10 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_InchesToFeet(double I_Value)
         {
-            return I_Value / 12;
+            double result = I_Value / 12;
+            RedisCache.RedisConnection("InchesToFeet " + I_Value.ToString(), "Feet " + result.ToString());
+            return result;
+            
         }
 
         /// <summary>
@@ -43,7 +46,10 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_FeetToYard(double F_Value)
         {
-            return F_Value / 3;
+            double result = F_Value / 3;
+            RedisCache.RedisConnection("FeetToYard " + F_Value.ToString(), "Yard " + result.ToString());
+            return result;
+            
         }
 
         /// <summary>
@@ -53,7 +59,10 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_YardToFeet(double Y_Value)
         {
-            return Y_Value * 3;
+            double result = Y_Value * 3;
+            RedisCache.RedisConnection("YardToFeet " + Y_Value.ToString(), "Feet " + result.ToString());
+            return result;
+            
         }
 
         /// <summary>
@@ -63,7 +72,10 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_InchesToYard(double I_Value)
         {
-            return I_Value / 36;
+            double result = I_Value / 36;
+            RedisCache.RedisConnection("InchesToYard " + I_Value.ToString(), "Yard " + result.ToString());
+            return result;
+           
         }
 
         /// <summary>
@@ -73,7 +85,10 @@ namespace Repository.LengthRepository
         /// <returns></returns>
         public double Converted_YardToInches(double Y_Value)
         {
-            return Y_Value * 36;
+            double result =  Y_Value * 36;
+            RedisCache.RedisConnection("YardToInches " + Y_Value.ToString(), "Inches " + result.ToString());
+            return result;
+           
         }
 
     }
