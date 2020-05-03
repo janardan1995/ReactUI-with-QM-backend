@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "CacheManager.Core/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        }
+      },
+      "CacheManager.StackExchange.Redis/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "CacheManager.Core": "1.2.0",
+          "StackExchange.Redis": "2.0.513"
+        },
+        "compile": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
+        }
+      },
       "Experimental.System.Messaging/1.1.0": {
         "type": "package",
         "compile": {
@@ -2973,7 +2995,32 @@
           "lib/netstandard2.0/StackExchange.Redis.dll": {}
         }
       },
-      "StackExchange.Redis.StrongName/1.2.4": {
+      "StackExchange.Redis.Extensions.Core/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "StackExchange.Redis": "1.2.0"
+        },
+        "compile": {
+          "lib/net45/StackExchange.Redis.Extensions.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StackExchange.Redis.Extensions.Core.dll": {}
+        }
+      },
+      "StackExchange.Redis.Extensions.Newtonsoft/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "9.0.1",
+          "StackExchange.Redis.Extensions.Core": "2.1.0"
+        },
+        "compile": {
+          "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.dll": {}
+        },
+        "runtime": {
+          "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.dll": {}
+        }
+      },
+      "StackExchange.Redis.StrongName/1.2.6": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -4748,6 +4795,40 @@
     }
   },
   "libraries": {
+    "CacheManager.Core/1.2.0": {
+      "sha512": "tmgwGDJlPNdSTb94Bx/0D3fDlkP+HIa80d1nCrXs+NjTgZR8JaQcslH+PHP2ebxPkM4CnijQVEMD+Dk8CvR41w==",
+      "type": "package",
+      "path": "cachemanager.core/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.core.1.2.0.nupkg.sha512",
+        "cachemanager.core.nuspec",
+        "lib/net40/CacheManager.Core.dll",
+        "lib/net40/CacheManager.Core.xml",
+        "lib/net45/CacheManager.Core.dll",
+        "lib/net45/CacheManager.Core.xml",
+        "lib/netstandard1.2/CacheManager.Core.dll",
+        "lib/netstandard1.2/CacheManager.Core.xml",
+        "lib/netstandard2.0/CacheManager.Core.dll",
+        "lib/netstandard2.0/CacheManager.Core.xml"
+      ]
+    },
+    "CacheManager.StackExchange.Redis/1.2.0": {
+      "sha512": "xU5g5Lt6d14yqgqHQUcxlIyXmXDCMewhmg0Bl5Atms1cRHcPRwRzzjOU90eNWxHjn4BM4wjWhV3GrsnlBhBZNw==",
+      "type": "package",
+      "path": "cachemanager.stackexchange.redis/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.stackexchange.redis.1.2.0.nupkg.sha512",
+        "cachemanager.stackexchange.redis.nuspec",
+        "lib/net461/CacheManager.StackExchange.Redis.dll",
+        "lib/net461/CacheManager.StackExchange.Redis.xml",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.xml"
+      ]
+    },
     "Experimental.System.Messaging/1.1.0": {
       "sha512": "vub7Mtt2WFdFKTZKECVuZx6feP5kUpS9EfVy+Yu4GDfdlMwivRdX4TbdkDYS2lKqCjqzUbnxTbJei1IOqC+CnA==",
       "type": "package",
@@ -8039,10 +8120,36 @@
         "stackexchange.redis.nuspec"
       ]
     },
-    "StackExchange.Redis.StrongName/1.2.4": {
-      "sha512": "qrfSB1BnmM17V20A4yvvNA0HNiDgnBd/CcjaeMKMA4qtup1uuBUMyhl20oj31fRVo71E/fXTbmQCuM9ytBJs6w==",
+    "StackExchange.Redis.Extensions.Core/2.1.0": {
+      "sha512": "K3gCw/i5jCOa0vQUDGhdH44p8+c867pg7/jDXM7lljeWUyaXonuXJGui4/tovuNIZuxKU9cSj9OvI0W7fxjh1w==",
       "type": "package",
-      "path": "stackexchange.redis.strongname/1.2.4",
+      "path": "stackexchange.redis.extensions.core/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/StackExchange.Redis.Extensions.Core.XML",
+        "lib/net45/StackExchange.Redis.Extensions.Core.dll",
+        "stackexchange.redis.extensions.core.2.1.0.nupkg.sha512",
+        "stackexchange.redis.extensions.core.nuspec"
+      ]
+    },
+    "StackExchange.Redis.Extensions.Newtonsoft/2.1.0": {
+      "sha512": "xs5jxb9lqlQGt7lKloziQdNLJkmXy221Lj/jhxUBkL7d8WWTQIPtF0sOT80TQAmw6UGrWbNVEk/6lL+2Ak7RLw==",
+      "type": "package",
+      "path": "stackexchange.redis.extensions.newtonsoft/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.XML",
+        "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.dll",
+        "stackexchange.redis.extensions.newtonsoft.2.1.0.nupkg.sha512",
+        "stackexchange.redis.extensions.newtonsoft.nuspec"
+      ]
+    },
+    "StackExchange.Redis.StrongName/1.2.6": {
+      "sha512": "UFmT1/JYu1PLiRwkyvEPVHk/tVTJa8Ka2rb9yzidzDoQARvhBVRpaWUeaP81373v54jupDBvAoGHGl0EY/HphQ==",
+      "type": "package",
+      "path": "stackexchange.redis.strongname/1.2.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8052,7 +8159,7 @@
         "lib/net46/StackExchange.Redis.StrongName.xml",
         "lib/netstandard1.5/StackExchange.Redis.StrongName.dll",
         "lib/netstandard1.5/StackExchange.Redis.StrongName.xml",
-        "stackexchange.redis.strongname.1.2.4.nupkg.sha512",
+        "stackexchange.redis.strongname.1.2.6.nupkg.sha512",
         "stackexchange.redis.strongname.nuspec"
       ]
     },
@@ -12934,6 +13041,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "CacheManager.StackExchange.Redis >= 1.2.0",
       "Experimental.System.Messaging >= 1.1.0",
       "FluentAssertions >= 5.10.3",
       "Manager >= 1.0.0",
@@ -12942,6 +13050,8 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Model >= 1.0.0",
       "StackExchange.Redis >= 2.1.30",
+      "StackExchange.Redis.Extensions.Newtonsoft >= 2.1.0",
+      "StackExchange.Redis.StrongName >= 1.2.6",
       "Swashbuckle.AspNetCore.SwaggerGen >= 5.4.1",
       "Swashbuckle.AspNetCore.SwaggerUI >= 5.4.1"
     ]
@@ -12990,6 +13100,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "CacheManager.StackExchange.Redis": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          },
           "Experimental.System.Messaging": {
             "target": "Package",
             "version": "[1.1.0, )"
@@ -13018,6 +13132,14 @@
             "target": "Package",
             "version": "[2.1.30, )"
           },
+          "StackExchange.Redis.Extensions.Newtonsoft": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
+          "StackExchange.Redis.StrongName": {
+            "target": "Package",
+            "version": "[1.2.6, )"
+          },
           "Swashbuckle.AspNetCore.SwaggerGen": {
             "target": "Package",
             "version": "[5.4.1, )"
@@ -13040,5 +13162,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'StackExchange.Redis.Extensions.Core 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "StackExchange.Redis.Extensions.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'StackExchange.Redis.Extensions.Newtonsoft 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "StackExchange.Redis.Extensions.Newtonsoft",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

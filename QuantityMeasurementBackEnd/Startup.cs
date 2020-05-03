@@ -9,6 +9,7 @@ namespace QuantityMeasurementBackEnd
 {
     using System;
     using System.Configuration;
+    using CacheManager.Redis;
     using FluentAssertions.Common;
     using Manager.LengthManager;
     using Manager.TemperatureManager;
@@ -45,56 +46,45 @@ namespace QuantityMeasurementBackEnd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll",
-                    builder =>
-                    {
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials();
-                    });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowAll",
+            //        builder =>
+            //        {
+            //            builder
+            //            .AllowAnyOrigin()
+            //            .AllowAnyMethod()
+            //            .AllowAnyHeader()
+            //            .AllowCredentials();
+            //        });
+            //});
             services.AddTransient<ITemperatureManager, TemperatureManager>();
             services.AddTransient<ICelsiusVsFahrenheith, CelsiusVsFahrenheith>();
             services.AddTransient<IWeightManager, WeightManager>();
             services.AddTransient<IKilogramVsGram, KilogramVsGram>();
             services.AddTransient<ILengthManager, LengthManager>();
             services.AddTransient<IFeetVsInchesVsYard, FeetVsInchesVsYard>();
+
+            // Add the service as a singleton
+            //services.AddSingleton<RedisService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
-            //redis
-            // Add memory cache
-
-            services.AddDistributedMemoryCache();
-            // Add redis distributed cache
-            if (Configuration.GetSection("RedisCacheOptions")["ConnectionString"] != "")
+            
+            //Add services needed for sessions
+            services.AddSession();
+            //Add distributed cache service backed by Redis cache
+            services.AddDistributedRedisCache(options =>
             {
-                services.AddDistributedRedisCache(options =>
-                {
-                    options.Configuration = Configuration.GetSection("RedisCacheOptions")["ConnectionString"];
-                    options.InstanceName = "Mysite:";
-                });
-            }
-
-            // Add the session service
-            services.AddSession(options =>
-            {
-                // Set session options
-                options.IdleTimeout = TimeSpan.FromMinutes(30d);
-                options.Cookie.Name = ".Mysite";
-                options.Cookie.Path = "/";
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                options.Configuration = Configuration.GetConnectionString("Redis");
             });
+          
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {

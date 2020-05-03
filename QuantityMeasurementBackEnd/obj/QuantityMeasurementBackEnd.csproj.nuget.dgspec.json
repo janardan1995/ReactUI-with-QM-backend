@@ -183,6 +183,10 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "CacheManager.StackExchange.Redis": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "Experimental.System.Messaging": {
               "target": "Package",
               "version": "[1.1.0, )"
@@ -201,6 +205,10 @@
               "target": "Package",
               "version": "[2.1.0, )"
             },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -210,6 +218,14 @@
             "StackExchange.Redis": {
               "target": "Package",
               "version": "[2.1.30, )"
+            },
+            "StackExchange.Redis.Extensions.Newtonsoft": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "StackExchange.Redis.StrongName": {
+              "target": "Package",
+              "version": "[1.2.6, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",

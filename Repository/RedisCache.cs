@@ -24,5 +24,5 @@ namespace Repository
             data.StringSet(key, value);
             data.StringGet(key);
         }
-    }
+    }  
 }

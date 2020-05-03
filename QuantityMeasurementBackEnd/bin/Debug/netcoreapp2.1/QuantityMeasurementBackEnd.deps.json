@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "QuantityMeasurementBackEnd/1.0.0": {
         "dependencies": {
+          "CacheManager.StackExchange.Redis": "1.2.0",
           "Experimental.System.Messaging": "1.1.0",
           "FluentAssertions": "5.10.3",
           "Manager": "1.0.0",
@@ -32,6 +33,8 @@
           "Microsoft.NETCore.App": "2.1.0",
           "Model": "1.0.0",
           "StackExchange.Redis": "2.1.30",
+          "StackExchange.Redis.Extensions.Newtonsoft": "2.1.0",
+          "StackExchange.Redis.StrongName": "1.2.6",
           "Swashbuckle.AspNetCore.SwaggerGen": "5.4.1",
           "Swashbuckle.AspNetCore.SwaggerUI": "5.4.1"
         },
@@ -40,6 +43,32 @@
         },
         "compile": {
           "QuantityMeasurementBackEnd.dll": {}
+        }
+      },
+      "CacheManager.Core/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        }
+      },
+      "CacheManager.StackExchange.Redis/1.2.0": {
+        "dependencies": {
+          "CacheManager.Core": "1.2.0",
+          "StackExchange.Redis": "2.1.30"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
         }
       },
       "Experimental.System.Messaging/1.1.0": {
@@ -82,7 +111,7 @@
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "2.1.1",
           "Microsoft.Extensions.Options": "2.1.1",
-          "StackExchange.Redis.StrongName": "1.2.4"
+          "StackExchange.Redis.StrongName": "1.2.6"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Redis.dll": {
@@ -182,7 +211,36 @@
           "lib/netstandard2.0/StackExchange.Redis.dll": {}
         }
       },
-      "StackExchange.Redis.StrongName/1.2.4": {
+      "StackExchange.Redis.Extensions.Core/2.1.0": {
+        "dependencies": {
+          "StackExchange.Redis": "2.1.30"
+        },
+        "runtime": {
+          "lib/net45/StackExchange.Redis.Extensions.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net45/StackExchange.Redis.Extensions.Core.dll": {}
+        }
+      },
+      "StackExchange.Redis.Extensions.Newtonsoft/2.1.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
+          "StackExchange.Redis.Extensions.Core": "2.1.0"
+        },
+        "runtime": {
+          "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/net45/StackExchange.Redis.Extensions.Newtonsoft.dll": {}
+        }
+      },
+      "StackExchange.Redis.StrongName/1.2.6": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.Collections": "4.3.0",
@@ -210,8 +268,8 @@
         },
         "runtime": {
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {
-            "assemblyVersion": "1.2.4.0",
-            "fileVersion": "1.2.4.0"
+            "assemblyVersion": "1.2.6.0",
+            "fileVersion": "1.2.6.0"
           }
         },
         "compile": {
@@ -3630,6 +3688,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CacheManager.Core/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tmgwGDJlPNdSTb94Bx/0D3fDlkP+HIa80d1nCrXs+NjTgZR8JaQcslH+PHP2ebxPkM4CnijQVEMD+Dk8CvR41w==",
+      "path": "cachemanager.core/1.2.0",
+      "hashPath": "cachemanager.core.1.2.0.nupkg.sha512"
+    },
+    "CacheManager.StackExchange.Redis/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xU5g5Lt6d14yqgqHQUcxlIyXmXDCMewhmg0Bl5Atms1cRHcPRwRzzjOU90eNWxHjn4BM4wjWhV3GrsnlBhBZNw==",
+      "path": "cachemanager.stackexchange.redis/1.2.0",
+      "hashPath": "cachemanager.stackexchange.redis.1.2.0.nupkg.sha512"
+    },
     "Experimental.System.Messaging/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -3707,12 +3779,26 @@
       "path": "stackexchange.redis/2.1.30",
       "hashPath": "stackexchange.redis.2.1.30.nupkg.sha512"
     },
-    "StackExchange.Redis.StrongName/1.2.4": {
+    "StackExchange.Redis.Extensions.Core/2.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qrfSB1BnmM17V20A4yvvNA0HNiDgnBd/CcjaeMKMA4qtup1uuBUMyhl20oj31fRVo71E/fXTbmQCuM9ytBJs6w==",
-      "path": "stackexchange.redis.strongname/1.2.4",
-      "hashPath": "stackexchange.redis.strongname.1.2.4.nupkg.sha512"
+      "sha512": "sha512-K3gCw/i5jCOa0vQUDGhdH44p8+c867pg7/jDXM7lljeWUyaXonuXJGui4/tovuNIZuxKU9cSj9OvI0W7fxjh1w==",
+      "path": "stackexchange.redis.extensions.core/2.1.0",
+      "hashPath": "stackexchange.redis.extensions.core.2.1.0.nupkg.sha512"
+    },
+    "StackExchange.Redis.Extensions.Newtonsoft/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xs5jxb9lqlQGt7lKloziQdNLJkmXy221Lj/jhxUBkL7d8WWTQIPtF0sOT80TQAmw6UGrWbNVEk/6lL+2Ak7RLw==",
+      "path": "stackexchange.redis.extensions.newtonsoft/2.1.0",
+      "hashPath": "stackexchange.redis.extensions.newtonsoft.2.1.0.nupkg.sha512"
+    },
+    "StackExchange.Redis.StrongName/1.2.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UFmT1/JYu1PLiRwkyvEPVHk/tVTJa8Ka2rb9yzidzDoQARvhBVRpaWUeaP81373v54jupDBvAoGHGl0EY/HphQ==",
+      "path": "stackexchange.redis.strongname/1.2.6",
+      "hashPath": "stackexchange.redis.strongname.1.2.6.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/5.4.1": {
       "type": "package",
