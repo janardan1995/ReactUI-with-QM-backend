@@ -13,7 +13,7 @@ namespace Repository.TemperatureRepository
     public class CelsiusVsFahrenheith: ICelsiusVsFahrenheith
     {
 
-        RedisCache RedisCache = new RedisCache();
+        RedisCacheSevcice RedisCache = new RedisCacheSevcice();
         /// <summary>
         /// Converteds the farhenheith to celsius.
         /// </summary>
@@ -23,7 +23,7 @@ namespace Repository.TemperatureRepository
         {     
             
             double result= (F_value - 32) / 1.8000;
-            RedisCache.RedisConnection("FarhenheithToCelsius " + F_value.ToString(), "Celsius " + result.ToString());
+            RedisCache.RedisConnectionSetKeyValue("FarhenheithToCelsius " + F_value.ToString(), "Celsius " + result.ToString());
             return result;
 
         }
@@ -36,7 +36,7 @@ namespace Repository.TemperatureRepository
         public double Converted_CelsiusToFahrenheith(double C_value)
         {
             double result= C_value * 9 / 5 + 32 ;
-            RedisCache.RedisConnection("CelsiusToFahrenheith " + C_value.ToString(), "Fahrenheith " + result.ToString());
+            RedisCache.RedisConnectionSetKeyValue("CelsiusToFahrenheith " + C_value.ToString(), "Fahrenheith " + result.ToString());
             return result;
 
         }

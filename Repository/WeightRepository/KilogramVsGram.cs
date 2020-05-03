@@ -15,7 +15,7 @@ namespace Repository.WeightRepository
         /// <summary>
         /// The redis cache
         /// </summary>
-        RedisCache RedisCache = new RedisCache();
+        RedisCacheSevcice RedisCache = new RedisCacheSevcice();
 
         /// <summary>
         /// Converteds the gram to kilogram.
@@ -25,7 +25,7 @@ namespace Repository.WeightRepository
         public double Converted_GramToKilogram(double G_value)
         {
             double result= G_value / 1000;
-            RedisCache.RedisConnection("GramToKilogram " + G_value.ToString(), "Kilogram " + result.ToString());
+            RedisCache.RedisConnectionSetKeyValue("GramToKilogram " + G_value.ToString(), "Kilogram " + result.ToString());
             return result;
         }
 
@@ -37,7 +37,7 @@ namespace Repository.WeightRepository
         public double Converted_KilogramToGram(double KG_value)
         {
             double result= KG_value * 1000;
-            RedisCache.RedisConnection("KilogramToGram " + KG_value.ToString(), "Gram " + result.ToString());
+            RedisCache.RedisConnectionSetKeyValue("KilogramToGram " + KG_value.ToString(), "Gram " + result.ToString());
             return result;
         }
     }

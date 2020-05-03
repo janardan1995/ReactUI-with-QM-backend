@@ -10,6 +10,7 @@ namespace QuantityMeasurementBackEnd.Controllers
 {
     using Manager.WeightManager;    
     using Microsoft.AspNetCore.Mvc;
+    using Repository;
 
     /// <summary>
     /// Weight Controller
@@ -23,6 +24,7 @@ namespace QuantityMeasurementBackEnd.Controllers
         /// The manager
         /// </summary>
         public readonly IWeightManager manager;
+        readonly RedisCacheSevcice redis = new RedisCacheSevcice();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WeightController"/> class.
@@ -60,6 +62,21 @@ namespace QuantityMeasurementBackEnd.Controllers
             double result= manager.Converted_GramToKilogram(G_value);
             Msmq.Send(result);
             return result;
+        }
+
+      //  
+        /// <summary>
+        /// Gets the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        /// 
+
+        [Route("api/redis")]
+        [HttpGet]
+        public string get(string key)
+        {
+            return redis.RedisConnectionGetValue(key);
         }
     }
 }
